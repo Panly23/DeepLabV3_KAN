@@ -98,3 +98,4 @@ Training remarks
 
 ## Visualization
 Visualization results obtained by using the DeepLabV3_KAN network to make predictions on some validation sets
+![Example result](example.png)
