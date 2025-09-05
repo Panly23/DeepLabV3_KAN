@@ -17,3 +17,28 @@ Key reported results on Cityscapes: validation mIoU = 0.7013 (a 2.13% improvemen
 │ └── cityscapes/
 ├── checkpoints/ # model checkpoints 
 ├── results/ # visualizations and metric logs
+```
+
+## Environment & Dependencies (recommended)
+
+Use conda or virtualenv. Example with conda:
+```plaintext
+conda create -n kan_seg python=3.9 -y
+conda activate kan_seg
+pip install -r requirements.txt
+```
+Dependencies in `requirements.txt`:
+```plaintext
+torch>=1.12.0
+torchvision
+numpy
+opencv-python
+matplotlib
+jupyterlab
+albumentations
+tqdm
+scipy
+Pillow
+tensorboard
+```
+Ensure CUDA drivers are compatible with the installed PyTorch wheel if you use GPU training.
