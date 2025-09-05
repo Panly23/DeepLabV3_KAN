@@ -66,6 +66,35 @@ datasets/cityscapes/
 ```
 Preprocessing & augmentation used in the paper:
 
-Random scaling, random cropping, horizontal flipping, color jittering (implemented with Albumentations).
+- Random scaling, random cropping, horizontal flipping, color jittering (implemented with Albumentations).
 
-Input normalization using ImageNet mean and std when using a pre-trained ResNet backbone.
+- Input normalization using ImageNet mean and std when using a pre-trained ResNet backbone.
+
+## Training & Reproduction Details (from the paper)
+
+Model
+
+- Backbone: ResNet-101 (pretrained)
+
+- ASPP dilation rates: {6, 12, 18}
+
+- Replace 3×3 convolutions in ASPP and the final conv layer with KAN-conv modules
+
+- Replace BatchNorm with LayerNorm
+
+Loss & Optimization
+
+- Loss: Modified Focal Loss (γ = 3) to handle class imbalance
+
+- Optimizer: SGD with Nesterov momentum (momentum = 0.9)
+
+- Initial LR: 1e-4, polynomial decay schedule
+
+- Early stopping: stop if validation metric does not improve for 10 epochs
+
+Training remarks
+
+- The paper reports experiments on a workstation with RTX 4080 SUPER. Adjust batch size and input resolution according to your GPU memory.
+
+## Visualization
+Visualization results obtained by using the DeepLabV3_KAN network to make predictions on some validation sets
