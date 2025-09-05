@@ -8,6 +8,7 @@ This repository implements and documents the method proposed in the paper "Kolmo
 Key reported results on Cityscapes: validation mIoU = 0.7013 (a 2.13% improvement over baseline DeepLabV3+), faster convergence, and improved boundary delineation.
 
 ## Recommended repository layout
+```plaintext
 ├── Base_deeplabv3+.ipynb
 ├── KAN_deeplabv3+ (2).ipynb
 ├── README.md 
