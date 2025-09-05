@@ -19,7 +19,7 @@ Key reported results on Cityscapes: validation mIoU = 0.7013 (a 2.13% improvemen
 ├── results/ # visualizations and metric logs
 ```
 
-## Environment & Dependencies (recommended)
+## Environment & Dependencies 
 
 Use conda or virtualenv. Example with conda:
 ```plaintext
@@ -42,3 +42,30 @@ Pillow
 tensorboard
 ```
 Ensure CUDA drivers are compatible with the installed PyTorch wheel if you use GPU training.
+
+
+## Dataset: Cityscapes
+
+The experiments reported in the paper use the Cityscapes dataset (fine annotations):
+
+- 5,000 finely annotated images (train/val/test splits)
+
+- 19 semantic classes (Cityscapes standard)
+
+Suggested folder layout:
+```plaintext
+datasets/cityscapes/
+  ├─ leftImg8bit/
+  │   ├─ train/
+  │   ├─ val/
+  │   └─ test/
+  └─ gtFine/
+      ├─ train/
+      ├─ val/
+      └─ test/
+```
+Preprocessing & augmentation used in the paper:
+
+Random scaling, random cropping, horizontal flipping, color jittering (implemented with Albumentations).
+
+Input normalization using ImageNet mean and std when using a pre-trained ResNet backbone.
